@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TaskService } from '../task.service';
+import { Task } from 'src/shared/model/task.model';
 
 @Component({
   selector: 'app-task-list',
@@ -7,7 +8,7 @@ import { TaskService } from '../task.service';
   styleUrls: ['./task-list.component.css']
 })
 export class TaskListComponent implements OnInit{
-  savedTask:Array<{name:string , isEditing:boolean, hover: boolean}>=[
+  savedTask:Array<Task>=[
     {name:'Task 1' , isEditing :false, hover: false},
     {name:'Task 2' , isEditing :false, hover: false},
     {name:'Task 3' , isEditing :false, hover: false},
@@ -26,19 +27,19 @@ export class TaskListComponent implements OnInit{
       (response) => this.savedTask.push({name:response,isEditing:false, hover: false})
     )}
 
-  onEdit(selectedTask) {
+  onEdit(selectedTask: Task):void {
     this.savedTask.forEach((task)=>{
         task.isEditing = false;
     })
     selectedTask.isEditing=true;   
   }
 
-  onDelete(selctedTask){
+  onDelete(selctedTask: Task):void{
     this.savedTask =  this.savedTask.filter((task)=> task !== selctedTask)
   }
 
-  updated
-  edited(selectedTask) {
+
+  edited(selectedTask: Task):void {
     selectedTask.isEditing = false;
   }
 }

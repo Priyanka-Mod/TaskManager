@@ -7,16 +7,16 @@ import { TaskService } from '../task.service';
   styleUrls: ['./add-task.component.css']
 })
 export class AddTaskComponent implements OnInit{
-  task:string = null
-  constructor(private newTaskService:TaskService){
+  task:string;
+  constructor(private readonly newTaskService:TaskService){
   }
   ngOnInit(): void {}
 
   
-  onSave(){
-    if(this.task==null){
+  onSave():void{
+    if(!this.task){
       alert("Enter task");
-      return
+      return;
     }
     this.newTaskService.saveTask(this.task);
     this.task = null;

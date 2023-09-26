@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
     AppComponent,
     AddTaskComponent,
     TaskListComponent
+   
   ],
   imports: [
     BrowserModule,

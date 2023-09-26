@@ -1,18 +1,18 @@
-<div class="w-20 task--list">
+<div class="w-20 task--container">
     <div class="task-list-view" *ngFor="let list of savedTask">
         <div class="m-3 shadow">
-                    <div class="row p-2 m-3 cursorHand" (mouseover)="list.hover = true" (mouseout)="list.hover = false" >
-                        <div class="col-md-10 border-0 p-2" style="color: grey;">
-                            <span *ngIf="!list.isEditing">{{list.name}}</span>
-                            <span *ngIf="list.isEditing"><input type="text" placeholder="Add Task" [(ngModel)]="list.name" (keyup.enter)="edited(list)"></span>
-                        </div>     
-                        <span class="col-md-1 btn btn-outline-danger btn-rounded" (click)="onDelete(list)" [hidden]="!list.hover">
-                            <i class="fa fa-trash"></i>
-                        </span>
-                        <span class="col-md-1 btn btn-outline-warning btn-rounded" (click)="onEdit(list)" [hidden]="!list.hover">
-                            <i class="fa fa-pencil"></i>
-                        </span>
-                    </div>
+            <div class="row p-2 m-3 cursor-p" (mouseover)="list.hover = true" (mouseout)="list.hover = false">
+                <div class="col-md-10 border-0 p-2">
+                    <span *ngIf="!list.isEditing">{{list.name}}</span>
+                    <span *ngIf="list.isEditing"><input type="text" placeholder="Add Task" [(ngModel)]="list.name" (keyup.enter)="edited(list)"></span>
+                </div>
+                <span class="col-md-1" [hidden]="!list.hover">
+                    <i class="fa fa-trash text-danger" (click)="onDelete(list)" ></i>
+                </span>
+                <span class="col-md-1 " [hidden]="!list.hover">
+                    <i class="fa fa-pencil text-warning"  (click)="onEdit(list)"></i>
+                </span>
+            </div>
         </div>
     </div>
 </div>

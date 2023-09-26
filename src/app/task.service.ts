@@ -10,7 +10,12 @@ export class TaskService {
   constructor() {
 
   }
-  saveTask(task:string){
+
+  /*
+  *
+  * 
+  */
+  public saveTask(task:string): void {
     this.newTask.emit(task);
   }
 }
