@@ -1,0 +1,7 @@
+<div class="container-fluid">
+    <div class="input-group shadow">
+        <input type="text" class="form-control" placeholder="Add Task" [(ngModel)]="task">
+        <button class="btn btn-outline-primary" type="button" (click)="onSave()" [disabled]="!task">Save</button>
+    </div>
+</div>
+    
